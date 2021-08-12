@@ -19,9 +19,9 @@ function ToDoList() {
             setTask("");
         }
     }
-    const removeTask =(id) =>{
-        let updateToDo = toDoList.filter((toDo) => toDo.id !== id);
-        setTask(updateToDo)
+    const removeEvent = (id) => {
+        let eventList = toDoList.filter(toDo => toDo.id !== id)
+        setToDoList(eventList)
     }
 
 
@@ -36,12 +36,13 @@ function ToDoList() {
                     </ div>
                     <button type="submit" >Add</button>
                 </form>
+
                 {toDoList.map((toDo) => {
                     const { id, task } = toDo;
                     return (
-                        <div className='item'>
+                        <div className='item' key={toDo.id}>
                             <h4>{task}</h4>
-                            <button type='button' onClick={() => removeTask(id)}>Done</button>
+                            <button type='button' onClick={() => removeEvent(toDo.id)}>Done</button>
 
                         </div>
                     );
